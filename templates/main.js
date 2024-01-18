@@ -1,0 +1,2 @@
+iFrameResize({log: true }, '.MainFrame');
+

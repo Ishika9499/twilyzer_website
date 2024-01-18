@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome_page</title>
+<style>
+  body{
+background-color: white;
+overflow: hidden;
+}
+.d{
+    position: absolute;
+    width: 98.2%;
+    height: 96.3%;
+    border: 5px groove black;
+}
+.c1{
+position: relative;
+top: 150px;
+left: 20%;
+}
+.c2{
+position: relative;
+top: 150px;
+left: 25%;
+}
+.c3{
+position: relative;
+top: 150px;
+left: 30%;
+}
+.d1{
+position: absolute;
+width: 655px;
+margin-top:-330px;
+margin-left: 440px;
+margin-right: 400px;
+font-size: 80px;
+font-family:Comic Sans MS;
+text-align: center;
+color: black;
+}
+.d2{
+position: absolute;
+color: white;
+bottom: 90px;
+left: 85px;
+font-family:Comic Sans MS;
+}
+.Next
+{
+cursor:pointer;
+position:absolute;
+top:50%;
+right: 50px;
+width:auto;
+margin-top:250px;
+padding: 10px 27px 10px 27px;
+color:white;
+font-size:40px;
+font-weight:bold;
+border-radius:100px 100px 100px 100px;
+transition:0.6s ease;
+user-select:none;
+}
+.Next:hover
+{
+background-color: rgba(29,162,242,0.7);
+}
+@keyframes transitionIn{
+from{
+opacity:0;
+transform:rotateX(-10deg);
+}
+to{
+opacity:1;
+transform:rotateX(0);
+}
+}
+.bubbles{
+    position:absolute;
+    width:100%;
+    height: 100%;
+    z-index:0;
+    overflow:hidden;
+    top:0;
+    left:0;
+  }
+.bubble{
+    position: absolute;
+    bottom:-100px;
+    width:40px;
+    height: 40px;
+    background:grey;
+    border-radius:50%;
+    opacity:0.5;
+    animation: rise 10s infinite ease-in;
+  }
+.bubble:nth-child(1){
+    width:40px;
+    height:40px;
+    left:10%;
+    animation-duration:8s;
+  }
+.bubble:nth-child(2){
+    width:20px;
+    height:20px;
+    left:20%;
+    animation-duration:5s;
+    animation-delay:1s;
+  }
+.bubble:nth-child(3){
+    width:50px;
+    height:50px;
+    left:35%;
+    animation-duration:7s;
+    animation-delay:2s;
+  }
+.bubble:nth-child(4){
+    width:80px;
+    height:80px;
+    left:50%;
+    animation-duration:11s;
+    animation-delay:0s;
+  }
+.bubble:nth-child(5){
+    width:35px;
+    height:35px;
+    left:55%;
+    animation-duration:6s;
+    animation-delay:1s;
+  }
+.bubble:nth-child(6){
+    width:45px;
+    height:45px;
+    left:65%;
+    animation-duration:8s;
+    animation-delay:3s;
+  }
+.bubble:nth-child(7){
+    width:90px;
+    height:90px;
+    left:70%;
+    animation-duration:12s;
+    animation-delay:2s;
+  }
+.bubble:nth-child(8){
+    width:25px;
+    height:25px;
+    left:80%;
+    animation-duration:6s;
+    animation-delay:2s;
+  }
+.bubble:nth-child(9){
+    width:15px;
+    height:15px;
+    left:70%;
+    animation-duration:5s;
+    animation-delay:1s;
+  }
+.bubble:nth-child(10){
+    width:90px;
+    height:90px;
+    left:25%;
+    animation-duration:10s;
+    animation-delay:4s;
+  }
+@keyframes rise{
+    0%{
+      bottom:-100px;
+      transform:translateX(0);
+    }
+    50%{
+      transform:translate(100px);
+    }
+    100%{
+      bottom:1080px;
+      transform:translateX(-200px);
+    }
+  }
+</style>
+</head>
+<body>
+  <section class="sticky">
+    <div class="bubbles">
+        <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
+  </section>
+<div class="d"></div>
+<img src="{{ url_for('static',filename='images/g5.gif')}}" class="c1" style="width:17%;" id="play">
+<img src="{{ url_for('static',filename='images/g7.gif')}}" class="c2" style="width:17%;" id="pause">
+<img src="{{ url_for('static',filename='images/g6.gif')}}" class="c3" style="width:17%;" id="reset">
+<div class="d1"><p>Let's twilyze!</p></div>
+<img src="{{ url_for('static',filename='images/b12.jpg')}}" width="25%" style="position: absolute; top: 66.3%; left: 3%;border-radius: 10px 10px 10px 10px;">
+<div class="d2"><center><p>With Public Sentiment, Nothing Can Fail.<br>Without it, Nothing Can Succeed.<br><i>~Abraham Lincoln</p></center></i></div>
+<audio id="a1" src="{{ url_for('static',filename='images/Happy_Gesture_Sound.mp3')}}" preload="auto" loop></audio>
+<audio id="a2" src="{{ url_for('static',filename='images/Thinking_Gesture_Sound_mp3.mp3')}}" preload="auto" loop></audio>
+<audio id="a3" src="{{ url_for('static',filename='images/Crying_Gesture_Sound.mp3')}}" preload="auto" loop></audio>
+<form class="row g-3" action="{{url_for('getquery')}}" method="post" style="position: absolute;left: 30%;top: 59%;width: 40%;height: 30%;text-align:center;">
+  <div class="col-md-4">
+    <input type="text" class="form-control" name="keyword" placeholder="Enter a keyword" style="line-height:40px;font-size: 33px; font-family: Comic Sans MS;margin-top: 14.5%;border: 1px groove black;" required>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit" style="position:absolute;margin-left:29%;margin-top:-5.5%;border:1px groove black;font-family:Comic Sans MS;">Query</button>
+  </div>
+</form>
+<img src="{{ url_for('static',filename='images/v.png')}}" width="25%" style="position: absolute; top: 59%; right: 2.3%;">
+</body>
+<script>
+var v = document.getElementsByClassName("bg1");
+var playBtn = document.getElementById('play'),
+resetBtn = document.getElementById('reset'),
+pauseBtn = document.getElementById('pause'),
+a1 = document.getElementById('a1')
+a2 = document.getElementById('a2')
+a3 = document.getElementById('a3')
+playBtn.addEventListener('mouseover', function() {
+    a1.play();
+}, false);
+
+playBtn.addEventListener('mouseleave', function() {
+  a1.pause();
+  a1.currentTime = 0;
+}, false);
+
+resetBtn.addEventListener('mouseover', function() {
+    a3.play();
+}, false);
+
+resetBtn.addEventListener('mouseleave', function() {
+  a3.pause();
+  a3.currentTime = 0;
+}, false);
+pauseBtn.addEventListener('mouseover', function() {
+    a2.play();
+}, false);
+
+pauseBtn.addEventListener('mouseleave', function() {
+  a2.pause();
+  a2.currentTime = 0;
+}, false);
+</script>
+</html>
